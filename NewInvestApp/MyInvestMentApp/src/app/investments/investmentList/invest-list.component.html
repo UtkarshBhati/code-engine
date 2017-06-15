@@ -1,0 +1,61 @@
+<div class="container-fluid">
+<div class="row">
+  <div class="col-xs-12"> 
+  <!--  <form>-->
+      <div class="row">
+      <div class="col-sm-4 form-group">
+        <label for="name">Investment Company Name</label>
+        <input type="text"  [(ngModel)]="namePassed"  class="form-control">
+        <!--<p>{{name}}</p>-->
+      </div>
+      <div class="col-sm-4 form-group">
+        <label for="type">Investment Type</label>
+        <input type="text" [(ngModel)]="typePassed"  class="form-control">
+      </div>
+      <div class="col-sm-4 form-group">
+        <label for="value">Investment Value</label>
+        <input type="text" [(ngModel)]="valuePassed"  class="form-control">
+      </div>
+      <!-- TEST INPUT FIELD -->
+        <div class="col-sm-4 form-group">
+        <label for="value">TEST Value</label>
+        <input type="text" class="form-control" #testInput>
+        </div>
+      <!-- TEST INPUT FIELD-->
+      </div>
+      <div class="row">
+         <div class="col-xs-4 pull-right">
+          <button class="btn btn-success" (click)="onAddClick()">Add Investment</button>
+          <button class="btn btn-failure">Delete Investment</button>
+          <button class="btn btn-success" (click)="onTestClick(testInput)">Test</button>
+        </div>
+      </div>
+  <!--</form>-->
+  </div>
+</div>
+<hr><p align="center">Div Based List Display</p><hr>
+
+  <div class="row list-group-item clearfix">
+      <div class="col-sm-2">#</div>    
+      <div class="col-sm-2">Inv. Name</div>
+      <div class="col-sm-2">Inv. Type</div>
+      <div class="col-sm-2">Inv. Value</div>
+  </div>
+  <div class="row list-group-item clearfix" *ngFor="let invmts of investments; let i = index">
+      <div class="col-sm-2"  ><a href="#" >{{'10'+i}}</a></div>    
+      <div class="col-sm-2"><p class="list-group-item-text">{{invmts.name}}</p></div>
+      <div class="col-sm-2"><p class="list-group-item-text">{{invmts.type}}</p></div>      
+      <div class="col-sm-2"><p class="list-group-item-text">{{invmts.value}}</p></div>
+  </div>
+  <br><br><br>
+
+  <div class="row">
+    <div class="col-sm-2">  TEST</div>
+  </div>
+<div class="row list-group-item clearfix" *ngFor="let invmts of servElements; let i = index">
+      <div class="col-sm-2"  ><a href="#" >{{'10'+i}}</a></div>    
+      <div class="col-sm-2"><p class="list-group-item-text">{{invmts.name}}</p></div>
+      <div class="col-sm-2"><p class="list-group-item-text">{{invmts.typePassed}}</p></div>      
+      <div class="col-sm-2"><p class="list-group-item-text">{{invmts.valuePassed}}</p></div>
+  </div>
+</div>
